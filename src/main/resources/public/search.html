@@ -6,6 +6,19 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body ng-app="Search">
+<div class="container" style="margin-top: 30px; align-content: center">
+    <form style="display:inline-block">
+        <div class="form-row align-items-center">
+            <div class="col-7">
+                <label class="sr-only" for="searchField">Search</label>
+                <input type="text" class="form-control mb-2" id="searchField" placeholder="Search">
+            </div>
+            <div class="col-auto">
+                <button type="submit" class="btn btn-primary mb-2">Search</button>
+            </div>
+        </div>
+    </form>
+</div>
 <div class="container" style="margin-top: 30px" ng-controller="SearchCtrl">
     <div class="row">
         <div class="col-md-12">
