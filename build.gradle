@@ -1,6 +1,12 @@
 plugins {
     id 'java'
+    id 'war'
+    id 'org.springframework.boot' version '2.2.1.RELEASE'
 }
+
+apply plugin: 'java'
+apply plugin: 'war'
+apply plugin: 'io.spring.dependency-management'
 
 group 'cream-sale.com'
 version '1.0-SNAPSHOT'
@@ -11,6 +17,13 @@ repositories {
     mavenCentral()
 }
 
+
+
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
+    compile group: 'org.apache.tomcat', name: 'tomcat-jdbc', version: '7.0.28'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 }
+
+
