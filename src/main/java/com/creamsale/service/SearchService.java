@@ -28,7 +28,7 @@ public class SearchService {
         }
     }
 
-    public static List<ProductModel> findAll() {
+    public List<ProductModel> findAll() {
         return items;
     }
 }
