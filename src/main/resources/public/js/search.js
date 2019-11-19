@@ -10,12 +10,12 @@ angular.module("Search", []).controller("SearchCtrl", function ($scope, $http) {
 
     $scope.findAll = function() {
         console.log("Find all");
-        $http.get('http://localhost:8090/api/search').then(_success, _error);
+        $http.get('http://18.191.64.122:8090/api/search').then(_success, _error);
     };
 
     $scope.search = function() {
         console.log("Search: "+$scope.searchField);
-        $http.get('http://localhost:8090/api/search/product/'+$scope.searchField).then(_success, _error);
+        $http.get('http://18.191.64.122:8090/api/search/product/'+$scope.searchField).then(_success, _error);
     };
 
     function _refreshSearchResults(res) {
