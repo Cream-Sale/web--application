@@ -1,0 +1,27 @@
+[
+  {
+    "brand":"Apple",
+    "generalCategory":"electronics",
+    "name":"Iphone7"
+  },
+  {
+    "brand":"Apple",
+    "generalCategory":"electronics",
+    "name":"Iphone10"
+  },
+  {
+    "brand":"Samsung",
+    "generalCategory":"electronics",
+    "name":"SAMSUNG Galaxy A30 (SM-A305F)"
+  },
+  {
+    "brand":"Samsung",
+    "generalCategory":"electronics",
+    "name":"Samsung Galaxy Watch 228"
+  },
+  {
+    "brand":"Apple",
+    "generalCategory":"electronics",
+    "name":"Apple iwatch version 2"
+  }
+]
