@@ -5,14 +5,14 @@ import com.fasterxml.jackson.annotation.JsonValue;
 public enum CashBack {
     LETYSHOPS("letyshops");
 
-    private String cashBackName;
+    private String value;
 
     CashBack(String cashBackName){
-        this.cashBackName = cashBackName;
+        this.value = cashBackName;
     }
 
     @JsonValue
-    public String getCashBackName() {
-        return cashBackName;
+    public String value() {
+        return value;
     }
 }
