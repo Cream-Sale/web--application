@@ -31,4 +31,14 @@ public class ShopsDBManager {
 
         return foundShops;
     }
+
+    public static ShopDTO get5Element(){
+        try {
+            return new ShopDTO(Shop.FIVE_ELEMENT, GeneralCategory.ELECTRONICS, new URI("https://5element.by/"));
+        } catch (URISyntaxException e) {
+            e.printStackTrace();
+        }
+
+        return null;
+    }
 }

@@ -2,26 +2,19 @@
   {
     "brand":"Apple",
     "generalCategory":"electronics",
-    "name":"Iphone7"
+    "name":"iphone 7",
+    "price":1209.00
   },
   {
     "brand":"Apple",
     "generalCategory":"electronics",
-    "name":"Iphone10"
+    "name":"iphone 11",
+    "price": 2529.00
   },
   {
     "brand":"Samsung",
     "generalCategory":"electronics",
-    "name":"SAMSUNG Galaxy A30 (SM-A305F)"
-  },
-  {
-    "brand":"Samsung",
-    "generalCategory":"electronics",
-    "name":"Samsung Galaxy Watch 228"
-  },
-  {
-    "brand":"Apple",
-    "generalCategory":"electronics",
-    "name":"Apple iwatch version 2"
+    "name":"samsung s10",
+    "price": 2359.00
   }
 ]

@@ -7,36 +7,27 @@ import java.util.Objects;
 import java.util.Set;
 
 @Entity
-@Table(name = "cashback")
+@Table(name = "CashBack")
 public class CashBackEntity implements Serializable {
 
     private Integer id;
     private String name;
     private String link;
+    private Set<CashBackShopInfoEntity> cashBackShopsInfo = new HashSet<>();
 
-    private Set<ShopEntity> shops = new HashSet<>();
     @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable(name = "shop",
-            //foreign key for EmployeeEntity in employee_car table
-            joinColumns = @JoinColumn(name = "cashBackId"),
-            //foreign key for other side - EmployeeEntity in employee_car table
-            inverseJoinColumns = @JoinColumn(name = "id"))
-    public Set<ShopEntity> getShops () {
-        return shops;
+    @JoinTable(name = "cash_back_shop_test", joinColumns = @JoinColumn(name = "cashBackId"),
+            inverseJoinColumns = @JoinColumn(name = "shopInfoId"))
+    public Set<CashBackShopInfoEntity> getCashBackShopsInfo() {
+        return cashBackShopsInfo;
     }
 
-    public void setShops(Set<ShopEntity> shops) {
-        this.shops = shops;
+    public void setCashBackShopsInfo(Set<CashBackShopInfoEntity> cashBackShopsInfo) {
+        this.cashBackShopsInfo = cashBackShopsInfo;
     }
 
-    private Set<CashBackSaleEntity> cashBackSale = new HashSet<>();
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "cashBack")
-    public Set<CashBackSaleEntity> getCashBackSale() {
-        return this.cashBackSale;
-    }
-
-    public void setCashBackSale(Set<CashBackSaleEntity> cashBackSale) {
-        this.cashBackSale = cashBackSale;
+    public void addCashBackShopsInfo(CashBackShopInfoEntity car) {
+        cashBackShopsInfo.add(car);
     }
 
     @Id
@@ -51,7 +42,7 @@ public class CashBackEntity implements Serializable {
     }
 
     @Basic
-    @Column(name = "name", nullable = true, insertable = true, updatable = true, length = 200)
+    @Column(name = "name", nullable = true, insertable = true, updatable = true, unique = true, length = 200)
     public String getName() {
         return name;
     }

@@ -1,5 +1,6 @@
 package com.creamsale.parsers;
 
+import com.creamsale.domain.CashBackShopInfoEntity;
 import com.creamsale.enums.CashBack;
 import com.creamsale.utils.SequenceGenerator;
 import org.jsoup.Jsoup;
@@ -8,6 +9,7 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 import java.io.IOException;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
@@ -125,23 +127,26 @@ public class LetyshopsParser implements IParser{
     }
 
     //будет возвращать коллекцию объектов, описывающих скидку
-    private void getFullPageData(String url) throws IOException {
+    public CashBackShopInfoEntity getFullPageData(String url) throws IOException {
         Document dddd = Jsoup.connect(url).get();
-        System.out.println(getShopName(dddd));
-        System.out.println(getDiscountInfo(dddd));
-        System.out.println(getConditions(dddd));
+        CashBackShopInfoEntity cashBackShopInfoEntity = new CashBackShopInfoEntity();
+        cashBackShopInfoEntity.setLink(url);
+        cashBackShopInfoEntity.setName(getShopName(dddd));
+        return cashBackShopInfoEntity;
     }
 
     // в интерфейсе тож поменяй возвращаемое
-    public void parse() throws Exception {
+    public List<CashBackShopInfoEntity> parse() throws Exception {
         Document document = Jsoup.connect(letyshopLink).get();
         int lastPageIdx = getLastPageIdx(document);
         List<Integer> indicesFrom1ToLast = new SequenceGenerator(1, lastPageIdx, 1).generate();
         List<String> linksToAllPages = enumPages(CashBack.LETYSHOPS.value()+"/by/shops?page=", indicesFrom1ToLast);
         List<String> allLocalUrlsOfGoods = getUrlsOfGoods(linksToAllPages);
         List<String> fullGoodLinks = makeFullLinks(allLocalUrlsOfGoods);
+        List<CashBackShopInfoEntity> res = new LinkedList<>();
         for (String url : fullGoodLinks) {
-            getFullPageData(url);
+            res.add(getFullPageData(url));
         }
+        return res;
     }
 }

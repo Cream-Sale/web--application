@@ -1,0 +1,404 @@
+@import "vars";
+@import "fonts";
+@import "libs";
+
+::placeholder {
+	color: #666;
+}
+
+::selection {
+	background-color: $accent;
+	color: #fff;
+}
+
+a, a:hover, a:active, a:focus,
+input, input:hover, input:focus, input:active,
+button, button:hover, button:focus, button:active,
+textarea, textarea:hover, textarea:focus, textarea:active {
+	text-decoration: none;
+	outline: 0;
+	outline-offset: 0;
+}
+
+body {
+	font-size: 16px;
+	min-width: 320px;
+	position: relative;
+	line-height: 1.65;
+	font-family: 'Roboto', sans-serif;
+	overflow-x: hidden;
+	color: $text;
+	input, textarea {
+		border: #666 1px solid;
+		outline: none;
+		&:focus:required:invalid {
+			border-color: red;
+		}
+		&:required:valid {
+			border-color: green;
+		}
+	}
+}
+
+
+a:active, a:focus { 
+	outline: none; 
+}
+
+ul, li {
+	display: block;
+	padding: 0;
+	margin: 0;
+}
+
+b, strong {
+	font-weight: bold;
+}
+
+a {
+	color: $text;
+	&:hover {
+		color: $text;
+		text-decoration: none;
+		
+	}
+}
+
+button {
+	border:none;
+}
+
+a, button, input {
+	transition: all 0.3s ease;
+	text-decoration: none;
+}
+
+
+// ---------------
+
+.header {
+	background: #9A877E;
+	position: relative;
+	padding: 30px 0;
+	-webkit-box-shadow: -4px 10px 19px 0px rgba(0,0,0,0.36);
+	-moz-box-shadow: -4px 10px 19px 0px rgba(0,0,0,0.36);
+	box-shadow: -4px 10px 19px 0px rgba(0,0,0,0.36);
+	width: 100%;
+	z-index: 5;
+	transition: all 0.1s ease-in-out;
+}
+
+.nav {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	&-space {
+		width: 100%;
+	}
+	&__list {
+		margin-left: -40px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	&__item {
+		padding: 0 60px;
+		&:after {
+			content: '';
+			display: block;
+			height: 2px;
+			width: 0;
+			background: #fff;
+			transition: all 0.2s ease-in-out;
+		}
+		&:hover {
+			&:after {
+				width: 100%;
+			}
+		}
+	}
+	&__link {
+		font-size: 24px;
+		font-weight: 500;
+	}
+}
+
+.main {
+
+	background: #E0E0E2 url('../img/dest/1.jpg') center bottom / cover;
+	position: relative;
+	padding: 70px 0 200px;
+	.user {
+		position: absolute;
+		right: 60px;
+		top:40px;
+		cursor: pointer;
+		img {
+			cursor: pointer;
+		}
+
+	}
+
+	&__company {
+		position: absolute;
+		z-index: 3;
+
+
+		&_left {
+			bottom:50px;
+			left:70px;
+		}
+		&_right {
+			bottom:50px;
+			right:70px;
+		}
+	}
+
+	&__logo {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	.search {
+		&__title {
+			font-weight: 700;
+			font-size: 20px;
+			color:#5f4720;
+			margin-top: 40px;
+			text-align: center;
+		}
+		&__space {
+			width: fit-to-content;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			margin: 0 auto;
+			position: relative;
+		}
+		&__input {
+			display: flex;
+			justify-content: center;
+			border-radius: 9px;
+			padding: 0 10px;
+			width: 50%;
+			margin: 0 auto;
+			border: none;
+			-webkit-box-shadow: 0px 7px 9px -1px rgba(0,0,0,0.46);
+			-moz-box-shadow: 0px 7px 9px -1px rgba(0,0,0,0.46);
+			box-shadow: 0px 7px 9px -1px rgba(0,0,0,0.46);
+		}
+		&__img {
+			position: absolute;
+			top:0px;
+			right: 307px;
+			cursor: pointer;
+		}
+	}
+	.icons {
+		display: flex;
+		margin-top: 30px;
+		justify-content: center;
+		align-items: center;
+		&__img {
+			margin-top: 15px;
+			padding: 0 40px;
+			transform: scale(1.6);
+		}
+	}
+}
+
+.opened {
+	left:-5vw !important;
+}
+
+.goods {
+	background: #E2E2E4;
+	position: relative;
+	&__left {
+		transition: all 0.2s ease-in-out;
+		height: 800px;
+		width: 70vw;
+		top: 30px;
+		left:-65vw;
+		background: #fff;
+		border-radius: 5px;
+		position: absolute;
+		z-index: 2;
+	}
+	&__open {
+		z-index: 3;
+		cursor: pointer;
+		position: absolute;
+		right: 10px;
+		top: 49%;
+	}
+	&__dot {
+		margin: 14px 0;
+		width: 12px;
+		height: 12px;
+		border-radius: 50%;
+		background: #816C62;
+	}
+	.col-lg-4 {
+		display: flex;
+		justify-content: center;
+	}
+}
+
+.item {
+	height: 350px;
+	width: 85%;
+	margin-top: 40px;
+	border-radius: 7px;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+	margin-bottom: 50px;
+	-webkit-box-shadow: 0px 6px 19px 6px rgba(0,0,0,0.36);
+	-moz-box-shadow: 0px 6px 19px 6px rgba(0,0,0,0.36);
+	box-shadow: 0px 6px 19px 6px rgba(0,0,0,0.36);
+	position: relative;
+	background: #fff;
+	padding: 30px 40px;
+	&__cart {
+		cursor: pointer;
+		position: absolute;
+		left: 35px;
+		top: 40px;
+	}
+	&__like {
+		cursor: pointer;
+		position: absolute;
+		left: 35px;
+		top: 88px;
+	}
+	&__btn {
+		cursor: pointer;
+		background: #fff;
+		border-radius: 15px;
+		padding: 10px 20px;
+		border:2px solid #A07534;
+	}
+	&__more {
+		cursor: pointer;
+		display: flex;
+		justify-content: center;
+		margin-top: 25px;
+	}
+	&__dot {
+		margin: 0 5px;
+		border-radius: 50%;
+		width: 9px;
+		height: 9px;
+		background: #816C62;
+	}
+}
+
+.order {
+	background: #E2E2E4;
+	padding: 70px 0 15px 0;
+	&__title {
+		margin-bottom: 35px;
+		background: #9A877E;
+		color:#fff;
+		font-size: 48px;
+		font-weight: 500;
+		text-align: center;
+		padding: 5px 0;
+	}
+}
+
+
+.form {
+	&__top {
+		display: flex;
+		justify-content: space-around;
+	}
+	&__left {
+		flex-direction: column;
+		display: flex;
+	}
+	&__input {
+		color:#9C9C9C;
+		font-size: 24px;
+		font-weight: 400;
+		background: #fff;
+		padding: 3px 20px;
+		border-radius: 7px;
+		width: 400px;
+		text-align: center;
+		margin-bottom: 50px;
+		transition: all 0.1s ease-in-out;
+		border: 1px solid #A07534;
+		&:hover {
+			color: #9C9C9C;
+		}
+		&::placeholder {
+			color: #DBDBDB;
+		}
+	}
+	&__title {
+		font-weight: bold;
+		text-align: center;
+		font-size: 36px;
+		font-weight: 500;
+		color: #fff;
+		margin-bottom: 60px;
+		margin-top: 100px;
+	}
+	&__btn {
+		color:#fff;
+		font-weight: bold;
+		background: #9A877E;
+		border-right: 8px;
+		padding: 6px 10px;
+		text-align: center;
+		margin-top: 15px;
+	}
+	&__choose {
+		cursor: pointer;
+		color:#DBDBDB;
+		font-size: 24px;
+		font-weight: 400;
+		background: #fff;
+		padding: 3px 20px;
+		border-radius: 7px;
+		width: 400px;
+		text-align: center;
+		margin-bottom: 50px;
+		transition: all 0.1s ease-in-out;
+		border: 1px solid #A07534;
+		&:hover {
+			color: #9C9C9C;
+		}
+	}
+	&__btn {
+		display: flex;
+		justify-content: center;
+		text-align: center;
+		font-size: 36px;
+		font-weight: bold;
+		padding: 2px 20px;
+		border-radius: 20px;
+		margin: 50px auto 10px auto;
+		cursor: pointer;
+		&:hover {
+			background: #786258;
+		}
+	}
+}
+
+.chosen {
+	color: #9C9C9C !important;
+}
+
+.fixed {
+
+	padding: 17px 0;
+	position: fixed !important;
+}
+
+
+
+@import "media"; // Always at the end
